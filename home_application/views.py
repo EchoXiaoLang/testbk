@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from common.mymako import render_mako_context
-
+from   django.http import HttpResponse
 
 def home(request):
     """
@@ -22,3 +22,7 @@ def contactus(request):
     联系我们
     """
     return render_mako_context(request, '/home_application/contact.html')
+
+def index(request):
+
+    return HttpResponse("hello world");
