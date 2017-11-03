@@ -27,6 +27,7 @@ APP_TOKEN = '0a8a37cf-31c4-4bff-a200-706c59d743a6'
 # 蓝鲸智云开发者中心的域名，形如：http://paas.bking.com
 BK_PAAS_HOST = 'http://paas-dev.tjbk.tongji.edu.cn:80'
 
+
 # 是否启用celery任务
 IS_USE_CELERY = True
 # 本地开发的 celery 的消息队列（RabbitMQ）信息
