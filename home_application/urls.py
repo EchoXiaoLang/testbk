@@ -7,6 +7,6 @@ urlpatterns = patterns(
      (r'^$', 'index'),
      (r'^dev-guide/$', 'dev_guide'),
      (r'^contactus/$', 'contactus'),
-     (r'^huntgence/$', 'huntgence'),
+     (r'^index/$', 'index'),
 
 )

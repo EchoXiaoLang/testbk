@@ -1,179 +1,531 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
-    <!-- Bootstrap css -->
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <!-- kendo ui css -->
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css" rel="stylesheet">
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.default.min.css" rel="stylesheet">
-    <!-- font-awesome -->
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
-    <!--蓝鲸提供的公用样式库 -->
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css" rel="stylesheet">
-    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk_pack.css" rel="stylesheet">
-    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
-    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
-    <script src="https://magicbox.bkclouds.cc/static_api/v3/bk/js/bk.js"></script>
-    <!-- 数据埋点统计 -->
-    <script src="https://magicbox.bkclouds.cc/static_api/analysis.js"></script>
-    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
-    <!--[if lt IE 9]><script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/html5shiv.min.js"></script><script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/respond.min.js"></script><![endif]-->
-</head>
+    <title>信息快查平台</title>
+    <style>
 
-<body class="bg-white" data-bg-color="bg-white">
-<div class="king-page-box">
-    <div class="king-layout1-header">
-        <nav class="">
-            <div style="overflow:hidden; z-index: inherit;" class="navbar king-horizontal-nav1  f14">
-                <div class="navbar-container">
-                    <div class="navbar-header pull-left">
-                        <a class="navbar-brand" href="javascript:;">
-                            <img src="https://magicbox.bkclouds.cc/static_api/v3/bk/images/logo.png" class="logo"> </a>
-                    </div>
-                    <ul class="nav navbar-nav pull-left m0">
-                        <li class="active"><a href="javascript:void(0);">首页</a></li>
-                        <li><a href="javascript:void(0);">关于我们</a></li>
-                        <li><a href="javascript:void(0);">联系我们</a></li>
-                    </ul>
-                    <div class="navbar-header pull-right">
-                        <ul class="nav">
-                            <li class="user-info">
-                                <a href="javascript:;">
-                                    <img class="img-rounded" src="https://magicbox.bkclouds.cc/static_api/v3/components/horizontal_nav1/images/avatar.png">
-                                    <span>admin</span>
-                                </a>
-                            </li>
-                        </ul>
+    </style>
+    <!-- 引入共同css、js -->
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/jquery-2.1.1.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/bootstrap.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/extensions/export/tableExport.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+    <script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/plugins/layer/layer.min.js"></script>
+    <script src="${STATIC_URL}js/jquery/jquery-form.js"></script>
+    <script src="${STATIC_URL}js/jquery/jquery.form.js"></script>
+    <script src="${STATIC_URL}js/layer2.0/layer.js"></script>
+     <link rel="stylesheet" type="text/css"href="${STATIC_URL}css/public.css" />
+    <link rel="stylesheet" type="text/css"href="${STATIC_URL}css/fastquery.css?a1" />
+</head>
+<body style="background: #f5f5f5;">
+<div class="table1">
+    <div class="noprint">
+        <div class="tophead">
+            <div class="t123" style="height: 12%;"></div>
+            <div class="searchwrap">
+                <div class="status  btn-group ">
+                    <button type="button" class="selstatus btn">在校</button>
+                    <button type="button" class="btn">离校</button>
+                </div>
+                <div class="choose  btn-group  " style="margin-top: 1.5%;">
+                    <button type="button" class="btn btn_where">手机号</button>
+                    <button type="button" class="btn btn_where">身份证号</button>
+                    <button type="button" class="btn btn_where">一卡通号</button>
+                    <button type="button" class="btn btn_where">车牌号</button>
+                </div>
+                <div class="search fl"
+                     style="width: 51%;margin-left: -0.5%; margin-top: 0.5%">
+                    <div class=" clear searchbox" style="margin: 1% 0% 0% 0%;">
+                        <input id="searchInput" class="searchtext fl" type="search"placeholder="请输入学工号/姓名">
+                        <div id="search" class="search-icn fl">
+                            <a href="#"><img class="search-icnimg img-responsive"src="${STATIC_URL}img/search-icn.png"alt="这是图片"></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </div>
-    <div class="king-layout1-main clearfix">
-        <!-- sidebar start -->
-        <div class="king-layout1-sidebar" style="width:216px;">
-            <nav style="overflow:hidden;">
-                <div class="king-vertical-nav9    f14">
-                    <div class="navbar-collapse navbar-hov">
-                        <ul class="nav navbar-nav side-nav">
-                            <li class="active">
-                                <a href="javascript:void(0);"> <i class="fa fa-dashboard ">                            </i>
-                                    <span>首页</span> <i class="fa fa-fw "></i> </a>
-                                <ul id="demo" class="collapse"> </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <i class="fa fa-wrench ">                            </i>
-                                    <span>表格</span> <i class="fa fa-fw "></i> </a>
-                                <ul id="demo" class="collapse"> </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <i class="fa fa-edit ">                            </i>
-                                    <span>表单</span> <i class="fa fa-fw "></i> </a>
-                                <ul id="demo" class="collapse"> </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <i class="fa fa-ellipsis-h ">                            </i>
-                                    <span>排版</span> <i class="fa fa-fw "></i> </a>
-                                <ul id="demo" class="collapse"> </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <i class="fa fa-wrench ">                            </i>
-                                    <span>布局</span> <i class="fa fa-fw "></i> </a>
-                                <ul id="demo" class="collapse"> </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <i class="fa fa-arrows-v ">                            </i>
-                                    <span>下拉菜单</span> <i class="fa fa-fw fa-caret-down"></i> </a>
-                                <ul id="demo" class="collapse">
-                                    <li><a href="javascript:void(0);">子菜单1</a></li>
-                                    <li><a href="javascript:void(0);">子菜单2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="tab table-responsive center-block container">
+        <div class="row">
+            <div class="col-md-5 noprint">
+                <div class="table-shadow">
+                    <table id='table' class="table text-center"style="margin-top: -62px;">
+
+                    </table>
                 </div>
-            </nav>
-        </div>
-        <!-- sidebar end -->
-        <!-- content start -->
-        <div class="king-content-wrap">
-            <div class="king-layout1-content" style="margin-left: 216px;">
-                <div class="panel king-panel1 mb0  ">
-                    <div class="panel-heading king-panel-head1 king-panel-top1">
-                        <h3 class="panel-title">面板标题</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge king-info">just now</span> <i class="fa fa-calendar"></i>
-                                <span>日历升级</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">4 minutes ago</span> <i class="fa fa-comment"></i>
-                                <span>回复邮件</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">23 minutes ago</span> <i class="fa fa-shopping-cart"></i>
-                                <span>购物车</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">46 minutes ago</span> <i class="fa fa-check"></i>
-                                <span>支付</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">1 hour ago</span> <i class="fa fa-user"></i>
-                                <span>添加新用户</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">2 hours ago</span> <i class="fa fa-tasks"></i>
-                                <span>任务: "pick up dry cleaning"</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">yesterday</span> <i class="fa fa-globe"></i>
-                                <span>保存文件</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge king-info">two days ago</span> <i class="fa fa-tasks"></i>
-                                <span>任务: "fix error on sales page"</span>
-                            </li>
-                        </ul>
-                        <!-- 设置面板Start -->
-                        <!-- 设置面板End -->
+            </div>
+            <!--startprint-->
+            <div class="col-md-7">
+                <div class="box-shadow">
+                    <div class="browse">
+                        <div class="clear">
+                            <h class="fl">个人信息概览</h>
+                            <div id="go" class="fr noprint"></div>
+                            <div id="btn" class="fr btn btn-default noprint"onclick="window.print();">打印</div>
+                        </div>
+                        <div class="clear viewtab">
+                            <ul class="list-unstyled fl">
+                                <li  class="clear">
+                                    <sapn class="fl" >人员类别：</sapn>
+                                    <span class="fl" id="type"></span>
+                                </li>
+                                <li  class="clear">
+                                    <sapn class="fl" >职称/职务：</sapn>
+                                    <span class="fl" id="duties"></span>
+                                </li>
+                                <li  class="clear">
+                                    <sapn class="fl" >学工号：</sapn>
+                                    <span class="fl" id="emplyNo"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">姓名：</sapn>
+                                    <span class="fl" id="name"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">性别：</sapn>
+                                    <span class="fl" id="sex"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">院系单位：</sapn>
+                                    <span class="fl" id="deptName"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">专业：</sapn>
+                                    <span class="fl" id="specialty"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">一卡通号：</sapn>
+                                    <span class="fl" id="oneCardId"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">车牌号：</sapn>
+                                    <span class="fl" id="carId"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">进校年月：</sapn>
+                                    <span class="fl" id="fromYear"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled fl">
+                                <li>
+                                    <img id="photo" src="${STATIC_URL}img/noperson.png" width="100" style="padding-bottom:3%;">
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">籍贯：</sapn>
+                                    <span class="fl" id="nati"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">国籍：</sapn>
+                                    <span class="fl" id="nation"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">出生日期：</sapn>
+                                    <span class="fl" id="birthDate"></span>
+                                </li>
+                                <li class="clear  ">
+                                    <sapn class="fl">手机号码：</sapn>
+                                    <span class="fl" id="mobilePhone"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">证件号码：</sapn>
+                                    <span class="fl" id="idCard"></span>
+                                </li>
+                                <li class="clear">
+                                    <sapn class="fl">离校时间：</sapn>
+                                    <span class="fl" id="departureTime"></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!--endprint-->
         </div>
-        <!-- content end -->
+
     </div>
 </div>
+<script src=${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/jquery-2.1.1.min.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/bootstrap.min.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="${STATIC_URL}js/jslib/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/extensions/export/tableExport.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/js/plugins/layer/layer.min.js"></script>
+<script src=${STATIC_URL}js/jquery-form.js"></script>
+<script src="${STATIC_URL}js/jquery.form.js"></script>
+<script src="${STATIC_URL}js/layer2.0/layer.js"></script>
 <script>
+    var searchField;
+    //随机图片
+    var index = Math.floor((Math.random()*7))+1;
+    $('.tophead').css('background','url(${STATIC_URL}img/fastQuery/0'+index+'.png) top no-repeat');
+    var sInput=["学工号/姓名"];
+    var sStatus=["在校"];
+    var windowW = window.screen.width;
+    var tabContentH;
+    var tabBodyH;
+    var pageSize;
+    var limit_index=0;
     $(function(){
-        var li = $('.navbar-nav li');
-        li.each(function(){
-            $(this).click(function(){
-                if( $(this).hasClass('opens')){
-                    $(this).find('ul').slideUp(350);
-                    $(this).removeClass('opens');
-                }else{
-                    $(this).find('ul').slideDown(350);
-                    $(this).addClass('opens');
-                }
-            })
+        if(windowW<=1366){
+            //设定高度
+            $(".tophead").css("height",180);
+            var height = $(document.body).outerHeight(true)- 180;
+            $(".container").css("height",height);
+            tabContentH = 440;
+            pageSize = 6;
+            tabBodyH = 310;
+        }else{
+            //设定高度
+            $(".tophead").css("height",220);
+            var height = $(document.body).outerHeight(true)- 220;
+            $(".container").css("height",height);
+            tabContentH = 650;
+            pageSize = 10;
+            tabBodyH = 500;
+        }
+        loadBootstrapTable();
+        //查看当前用户是否有查看他人个人信息中心的权限
+       // checkSeeHisDatacenter();
+
+
+    });
+
+    if(sInput=="学工号"){
+        searchField="FD01";
+    }else if(sInput=="身份证号"){
+        searchField="FD04";
+    }else if(sInput=="姓名"){
+        searchField="FD02";
+    }else if(sInput=="车牌号"){
+        searchField="FD06";
+    }else if(sInput=="一卡通号"){
+        searchField="FD05";
+    }else if(sInput=="手机号"){
+        searchField="FD03";
+    }else{
+        searchField="";
+    }
+
+    var $table = $("#table");
+    $('.select option[background!="none"]').css('background','#1eaaf1');
+    if($(".select option:selected")) {
+        $('.select').css('background','none');
+    }else{
+        $('.select').css('background','#1eaaf1');
+    }
+
+    //select选项
+    $(document).ready(function(){
+        $('#go').css('display','none');
+        $('#btn').css('display','none');
+        $(".fa-angle-down").bind("click",function(){
+            $(".selectbox-ul").slideDown(800);
+
         });
-    })
+        $(".status").find("button").click(function () {
+            var txt = $(this).html();
+            var  all="校"
+            if( $(this).hasClass("selstatus")){
+                sStatus=all  ;$(this).removeClass("selstatus");
+            }else{
+                $(this).addClass("selstatus") ;
+                $(this).siblings().removeClass("selstatus");
+                sStatus=txt;
+            }
+            $(this).blur(); //失去当前鼠标焦点 ！(回车键会触发)
+        })
+
+
+        $(".choose ").find("button").click(function(){
+//		    $(".choose").find(".selstatus").removeClass("selstatus");
+//		    $(".btn_where").removeClass("selstatus");
+//            $(this).toggleClass("selstatus");
+            var txt = $(this).html();
+            sInput=[txt];
+            if($(this).hasClass("selstatus")){
+                $(this).removeClass("selstatus");
+                $("#searchInput").attr("placeholder","请输入学工号/姓名");
+                sInput=["学工号/姓名"]
+            }else{
+                $(".btn_where").removeClass("selstatus");
+                $(this).addClass("selstatus");
+            }
+            $("#selectInput").value=txt;
+            if(txt=="学工号"){
+                $("#searchInput").attr("placeholder","请输入学工号");
+            }else if(txt=="身份证号"){
+                $("#searchInput").attr("placeholder","请输入身份证号");
+            }else if(txt=="姓名"){
+                $("#searchInput").attr("placeholder","请输入姓名");
+            }else if(txt=="车牌号"){
+                $("#searchInput").attr("placeholder","输入车牌号");
+            }else if(txt=="一卡通号"){
+                $("#searchInput").attr("placeholder","请输入一卡通号");
+            }else if(txt=="手机号"){
+                $("#searchInput").attr("placeholder","请输入手机号");tabTitle=["手机号"];
+            }else{
+                $("#searchInput").attr("placeholder","请输入学工号2");
+            }
+        }).bind("mouseup",function(){
+
+        });
+    });
+
+    $("#search").click(function(){
+        clear();
+        if(sInput=="学工号"){
+            searchField="FD01";
+        }else if(sInput=="身份证号"){
+            searchField="FD04";
+        }else if(sInput=="手机号"){
+            searchField="FD03";
+        }else if(sInput=="姓名"){
+            searchField="FD02";
+        }else if(sInput=="车牌号"){
+            searchField="FD06";
+        }else if(sInput=="一卡通号"){
+            searchField="FD05";
+        }else if(sInput=="学工号/姓名"){
+            if(!isNaN($("#searchInput").val())){
+                //学工号
+                searchField="FD01";
+            }else{
+                //姓名
+                searchField="FD02";
+            }
+        }else{
+            searchField="";
+        }
+
+        if($("#searchInput").val()=="" || searchField ==""){
+            layer.msg("搜索框不能为空");
+        }else{
+            $table.bootstrapTable('refresh');
+        }
+    });
+
+    function loadBootstrapTable(){
+        $('.table-shadow').height(tabContentH);
+        $('.browse').height(tabContentH);
+        $table.html("");
+        var url  = "http://edw.tongji.edu.cn:5678/datacenter/fastQuery/findPageList";
+        $table.bootstrapTable({
+            height: tabContentH,
+            url : url,
+            //	    	toolbar:'.toolbar',//工具条
+            search:false,//查询输入框
+            showRefresh:false,//刷新按钮
+            showToggle:false,//是否可以切换到卡片模式
+            showColumns:false,//是否可以选择列数
+            showExport:false,//是否可以导出
+            minimumCountColumns:2,//最小显示的列数
+            pagination:true,//分页按钮是否显示
+            idField:'WID',//主键
+            pageList:'[7, 10, 20, 100, ALL]',
+            pageSize:pageSize,
+            showFooter:false,//显示总数
+            sidePagination:'server',//服务器端分页
+            queryParams: params,//查询参数
+            responseHandler:function(res){
+                return {
+                    "total": res["ret_data"]["total"],//总页数
+                    "rows": res["ret_data"]["list"]   //数据
+                };
+            },
+            columns: [{
+                title : '学工号',
+                field: 'FD01',
+                align: 'center',
+                valign: 'middle'
+            },
+                {
+                    title : '姓名 ',
+                    field: 'FD02',
+                    align: 'center',
+                    valign: 'middle'
+                },
+                {
+                    title : '院系单位',
+                    field: 'FD10',
+                    align: 'center',
+                    valign: 'middle',
+                },
+                {
+                    title : '在校状态',
+                    field: 'FD07',
+                    align: 'center',
+                    valign: 'middle',
+                    //class : 'nowrap',
+                    //formatter: function(value){
+                    // return "鄂A289877";
+                    //}
+                }
+            ] ,
+            onLoadSuccess : function(data){
+                $(".fixed-table-body").css("height",tabBodyH);
+                $('tbody tr').click(function(){
+                    $('#table tbody tr td:first-child').css({'color': '','border-left': '5px solid rgba(0,0,0,0)'});
+                    $(this).find('td').eq(0).css({'color': '#01BBEE','border-left': '5px solid #01BBEE'});
+                });
+                var rows = data["rows"];
+                //当查询有有效数据时，右边默认显示第一行的数据
+                if(rows.length>0 && rows[0]!=undefined){
+                    //上色，第一行高尚亮
+                    $('tr').find('td').eq(0).css({'color': '#01BBEE','border-left': '5px solid #01BBEE'});
+                    $("#name").text(rows[0].FD02);
+                    $("#sex").text(rows[0].FD08);
+                    $("#nation").text(rows[0].FD09);
+                    $("#emplyNo").text(rows[0].FD01);
+                    $("#duties").html(rows[0]["FD18"]);
+                    $("#type").html(rows[0]["FD16"]+"("+rows[0]["FD17"]+")");
+                    getPhoto(rows[0].FD01);
+                    $("#nati").text(rows[0].FD13);
+                    $("#birthDate").text(rows[0].FD12);
+                    $("#fromYear").text(rows[0].FD11);
+                    $("#idCard").text(rows[0].FD04);
+                    $("#mobilePhone").text(rows[0].FD03);
+                    $("#carId").text(rows[0].FD06);
+                    $("#oneCardId").text(rows[0].FD05);
+                    $("#departureTime").text(rows[0].FD14);
+                    $("#deptName").text(rows[0].FD10);
+                    $("#specialty").text(rows[0].FD15);
+                }
+            },
+            onLoadError : function(status, res){
+                $('.browse').height($('.table-shadow').height());
+            },
+            onClickRow: function(row, $element){
+                getDetail(row.FD01);
+            }
+        });
+    }
+
+    function params(params){
+        if(parseInt(params["offset"])==0){
+            limit_index=0;
+        }else{
+
+            limit_index=parseInt(params["offset"])/pageSize;
+        }
+        params["offset"]=limit_index;
+        if($("#searchInput").val()!=""){
+            params['queryParams'] = searchField + "#" +
+                    encodeURI(
+                            encodeURI($("#searchInput").val())+
+                            ","+"FD07"+"#"+encodeURI(sStatus)
+                    );
+        }else{
+            //不知何意？
+//					params['queryParams'] =  "FD01#" + encodeURI(encodeURI("abcdefgfedcba"));
+
+            params['queryParams'] = "FD01#" +
+                    encodeURI(
+                            encodeURI("abcdefgfedcba")+
+                            ","+"FD07"+"#"+encodeURI("在校")
+                    );
+        }
+        return params
+    }
+
+    function getDetail(sno){
+        $.ajax({
+            url: "http://edw.tongji.edu.cn:5678/datacenter/fastQuery/findBaseInfoBySno",
+            type: 'get',
+            dataType:'json',
+            data: {
+                "sno":sno
+            },
+            success: function (data) {
+                var dataList = data.tableDataList;
+                //clear详情框
+                clear();
+                if(dataList.length>0){
+                    $("#name").text(dataList[0].FD02);
+                    $("#duties").html(dataList[0]["FD18"]);
+                    $("#type").html(dataList[0]["FD16"]+"("+dataList[0]["FD17"]+")");
+                    $("#sex").text(dataList[0].FD08);
+                    $("#nation").text(dataList[0].FD09);
+                    $("#emplyNo").text(dataList[0].FD01);
+                    getPhoto(dataList[0].FD01);
+                    $("#nati").text(dataList[0].FD13);
+                    $("#birthDate").text(dataList[0].FD12);
+                    $("#fromYear").text(dataList[0].FD11);
+                    $("#idCard").text(dataList[0].FD04);
+                    $("#mobilePhone").text(dataList[0].FD03);
+                    $("#carId").text(dataList[0].FD06);
+                    $("#oneCardId").text(dataList[0].FD05);
+                    $("#departureTime").text(dataList[0].FD14);
+                    $("#deptName").text(dataList[0].FD10);
+                    $("#specialty").text(dataList[0].FD15);
+                    $('#go').css('display','');
+                    $('#btn').css('display','');
+                }
+            },
+            error : function() {
+                parent.layer.alert('网络错误，请联系管理员', {icon : 2});
+            }
+        });
+
+    }
+
+    function clear() {
+        $("#name").text("");
+        $("#sex").text("");
+        $("#nation").text("");
+        $("#emplyNo").text("");
+        $("#nati").text("");
+        $("#birthDate").text("");
+        $("#fromYear").text("");
+        $("#idCard").text("");
+        $("#mobilePhone").text("");
+        $("#carId").text("");
+        $("#oneCardId").text("");
+        $("#departureTime").text("");
+        $("#deptName").text("");
+        $("#specialty").text("");
+    }
+
+    //局部打印
+    function doPrint() {
+        window.print();
+    }
+    //回车提交事件
+    $("body").keydown(function() {
+        if (event.keyCode == "13") {//keyCode=13是回车键
+            $("#search").click();
+        }
+    });
+
+    //添加人物图片显示
+    function getPhoto(sno){
+        $.ajax({
+            url:  "http://edw.tongji.edu.cn:5678/datacenterfastQuery/getPhoto?sno="+sno,
+            type: 'get',
+            dataType:'json',
+            data: {
+                "sno":sno
+            },
+            async : true,//同步
+            success : function(result) {
+                if(result==null || result==""){
+                    $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
+                }else{
+                    $("#photo").attr('src',result);
+                }
+            },
+            error : function() {
+                $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
+            }
+        });
+        // $("#photo").attr('src',base.basePath+"/fastQuery/getPhoto?sno="+sno);
+    }
+
 </script>
 </body>
-
 </html>

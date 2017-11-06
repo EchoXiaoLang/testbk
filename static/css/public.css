@@ -1,0 +1,187 @@
+/*公共属性*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+body {
+    margin: 0 auto;
+    font-family: "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    color: #000;
+    font-weight: 500;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+p, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+i, em, cite {
+    font-style: normal;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    zoom: 1; /*用于IE6*/
+}
+
+div {
+    zoom: 1; /*用于IE6,要是IE6错位,修复这个.*/
+}
+
+li {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+}
+
+dl, dt, dd {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    margin: 0px auto;
+. box-sizing(border-box); /* 1 */
+    max-width: 100%; /* 2 */
+    height: auto; /* 2 */
+    vertical-align: middle; /* 3 */
+    border: 0; /* 4 */
+}
+
+input, select, textarea {
+    outline: none;
+}
+
+/*body::-webkit-scrollbar {display: none}*//* 隐藏滚动条，但依旧具备可以滚动的功能 */
+
+/*滚动条美化*/
+/*::-webkit-scrollbar {width: 16px;height: 14px;}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;border: 5px solid transparent;}
+::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;}
+::-webkit-scrollbar-thumb {min-height: 20px;
+  background-clip: content-box;box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;}*/
+/* Let's get this party started */
+/*::-webkit-scrollbar {width:10px;}滚动条整体部分
+::-webkit-scrollbar-track {外层轨道
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;border-radius: 10px;}
+::-webkit-scrollbar-thumb {拖动条？滑块？滚动条里面可以拖动的那个，肿么翻译好呢？）
+    -webkit-border-radius: 10px;border-radius: 10px;
+    background:rgba(144,24,53,0.7);-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);}
+::-webkit-scrollbar-thumb:window-inactive {background: rgba(144,24,53,0.4);}
+::-webkit-scrollbar-corner {background: transparent;}边角*/
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.white {
+    color: #fff;
+    text-decoration: none;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+}
+
+::-moz-placeholder {
+    color: #fff;
+}
+
+/* firefox 19+ */
+:-ms-input-placeholder {
+    color: #fff;
+}
+
+/* ie */
+input:-moz-placeholder {
+    color: #fff;
+}
+
+/*字体*/
+html {
+    font-size: 100px;
+}
+
+body {
+    font-size: 0.14rem;
+    font-size: 0.14px;
+}
+
+/*定义类*/
+.clear:after {
+    clear: both;
+    height: 0;
+    display: block;
+    content: '.';
+    visibility: hidden;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.Top {
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    cursor: pointer;
+    display: none;
+}
+
+/*字体*/
+@media (min-width: 1366px) {
+    html {
+        font-size: 100px;
+    }
+
+    body {
+        font-size: 0.14rem;
+        font-size: 0.14px;
+    }
+}
+
+@media (min-width: 1440px) {
+
+}
+
+@media (min-width: 1560px) {
+    html {
+        font-size: 100px;
+    }
+
+    body {
+        font-size: 0.15rem;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1900px) {
+
+}
+
+#searchInput {
+    border: 0;
+}

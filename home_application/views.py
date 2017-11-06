@@ -23,14 +23,6 @@ def contactus(request):
     """
     return render_mako_context(request, '/home_application/contact.html')
 
-def  huntgence(request):
-    """
-    智能搜索
-    """
-    return  render_mako_context(request, '/home_application/huntgence/index.html')
+def  index(request):
 
-def secondMenu(request):
-    """
-   智能搜索
-   """
-    return  render_mako_context(request, '/home_application/huntgence/secondMenu.html')
+  return  render_mako_context(request, '/home_application/huntgence/index.html')
