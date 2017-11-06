@@ -23,7 +23,7 @@ def contactus(request):
     """
     return render_mako_context(request, '/home_application/contact.html')
 
-def  index(request):
+def  huntgence(request):
     """
     智能搜索
     """
