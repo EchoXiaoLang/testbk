@@ -26,3 +26,7 @@ def contactus(request):
 def  index(request):
 
   return  render_mako_context(request, '/home_application/huntgence/index2.html')
+
+def  index(request):
+
+    return  render_mako_context(request, '/home_application/huntgence/index.html')
