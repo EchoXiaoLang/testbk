@@ -307,7 +307,8 @@
             $table.bootstrapTable('refresh');
         }
     });
-
+    //在客户端对ajax进行设定
+    $.ajaxSettings.crossDomain = true;
     function loadBootstrapTable(){
         $('.table-shadow').height(tabContentH);
         $('.browse').height(tabContentH);
