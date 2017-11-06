@@ -313,7 +313,7 @@
         $('.table-shadow').height(tabContentH);
         $('.browse').height(tabContentH);
         $table.html("");
-        var url  = "http://edw.tongji.edu.cn:5678/datacenter/fastQuery/findPageList";
+        var url  = "http://  192.168.124.62:5678/datacenter/fastQuery/findPageList";
         $table.bootstrapTable({
             height: tabContentH,
             url : url,
@@ -434,7 +434,7 @@
 
     function getDetail(sno){
         $.ajax({
-            url: "http://edw.tongji.edu.cn:5678/datacenter/fastQuery/findBaseInfoBySno",
+            url: "http://  192.168.124.62:5678/datacenter/fastQuery/findBaseInfoBySno",
             type: 'get',
             dataType:'json',
             data: {
@@ -504,7 +504,7 @@
     //添加人物图片显示
     function getPhoto(sno){
         $.ajax({
-            url:  "http://edw.tongji.edu.cn:5678/datacenterfastQuery/getPhoto?sno="+sno,
+            url:  "http://  192.168.124.62:5678/datacenterfastQuery/getPhoto?sno="+sno,
             type: 'get',
             dataType:'json',
             data: {
