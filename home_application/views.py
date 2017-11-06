@@ -23,6 +23,8 @@ def contactus(request):
     """
     return render_mako_context(request, '/home_application/contact.html')
 
-def index(request):
-
-    return HttpResponse("hello world");
+def  index(request):
+    """
+    智能搜索
+    """
+    return  render_mako_context(request, '/home_application/huntgence/index.html')
