@@ -8,4 +8,5 @@ urlpatterns = patterns(
      (r'^dev-guide/$', 'dev_guide'),
      (r'^contactus/$', 'contactus'),
      (r'^index/$', 'index'),
+    (r'^secondMenu/$', 'secondMenu'),
 )

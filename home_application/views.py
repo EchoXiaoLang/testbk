@@ -27,4 +27,10 @@ def  index(request):
     """
     智能搜索
     """
-    return  render_mako_context(request, '/home_application/huntgence/index2.html')
+    return  render_mako_context(request, '/home_application/huntgence/index.html')
+
+def secondMenu(request):
+    """
+   智能搜索
+   """
+    return  render_mako_context(request, '/home_application/huntgence/secondMenu.html')
