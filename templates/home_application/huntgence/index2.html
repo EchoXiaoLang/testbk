@@ -159,6 +159,7 @@
 <script src="${STATIC_URL}js/jquery-form.js"></script>
 <script src="${STATIC_URL}js/layer.js"></script>
 <script>
+    test();
     var pyurl =$('#url').val();
     var searchField;
     //随机图片
@@ -526,7 +527,7 @@
         });
         // $("#photo").attr('src',base.basePath+"/fastQuery/getPhoto?sno="+sno);
     }
-    test()
+
     function test(){
         $.ajax({
             url:  "findPageList?order=asc&limit=10&offset=0&queryParams=FD01%23231%2CFD07%23%2525E5%25259C%2525A8%2525E6%2525A0%2525A1",
