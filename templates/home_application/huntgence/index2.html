@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css"href="${STATIC_URL}css/fastquery.css?a1" />
 </head>
 <body style="background: #f5f5f5;">
+<input id="url" type="hidden" value="${STATIC_URL}">
 <div class="table1">
     <div class="noprint">
         <div class="tophead">
@@ -158,6 +159,7 @@
 <script src="${STATIC_URL}js/jquery-form.js"></script>
 <script src="${STATIC_URL}js/layer.js"></script>
 <script>
+    var pyurl =$('#url').val();
     var searchField;
     //随机图片
     var index = Math.floor((Math.random()*7))+1;
@@ -313,7 +315,7 @@
         $('.table-shadow').height(tabContentH);
         $('.browse').height(tabContentH);
         $table.html("");
-        var url  = "http://202.120.163.90/datacenter/fastQuery/findPageList";
+        var url  = pyurl+"/findPageList";
         $table.bootstrapTable({
             height: tabContentH,
             url : url,
@@ -434,7 +436,7 @@
 
     function getDetail(sno){
         $.ajax({
-            url: "http://202.120.163.90/datacenter/fastQuery/findBaseInfoBySno",
+            url: pyurl+"/findBaseInfoBySno",
             type: 'get',
             dataType:'json',
             data: {
@@ -504,7 +506,7 @@
     //添加人物图片显示
     function getPhoto(sno){
         $.ajax({
-            url:  "http://202.120.163.90//datacenter/fastQuery/getPhoto?sno="+sno,
+            url:   pyurl+"/getPhoto?sno="+sno,
             type: 'get',
             dataType:'json',
             data: {
