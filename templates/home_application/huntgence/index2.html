@@ -315,7 +315,7 @@
         $('.table-shadow').height(tabContentH);
         $('.browse').height(tabContentH);
         $table.html("");
-        var url  = pyurl+"/findPageList";
+        var url  = pyurl+"findPageList";
         $table.bootstrapTable({
             height: tabContentH,
             url : url,
@@ -436,7 +436,7 @@
 
     function getDetail(sno){
         $.ajax({
-            url: pyurl+"/findBaseInfoBySno",
+            url: pyurl+"findBaseInfoBySno",
             type: 'get',
             dataType:'json',
             data: {
@@ -506,7 +506,7 @@
     //添加人物图片显示
     function getPhoto(sno){
         $.ajax({
-            url:   pyurl+"/getPhoto?sno="+sno,
+            url:   pyurl+"getPhoto?sno="+sno,
             type: 'get',
             dataType:'json',
             data: {
