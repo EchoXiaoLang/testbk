@@ -3,9 +3,6 @@
 from common.mymako import render_mako_context
 from   django.http import HttpResponse
 import urllib
-import urllib.request
-import time
-import json
 def home(request):
     """
     首页
