@@ -7,7 +7,7 @@ urlpatterns = patterns(
      (r'^$', 'index'),
      (r'^dev-guide/$', 'dev_guide'),
      (r'^contactus/$', 'contactus'),
-     (r'^static/findPageList/$', 'findPageList'),
-    (r'^static/findBaseInfoBySno/$', 'findBaseInfoBySno'),
-    (r'^static/getPhoto/$', 'getPhoto'),
+     (r'^findPageList/$', 'findPageList'),
+    (r'^findBaseInfoBySno/$', 'findBaseInfoBySno'),
+    (r'^getPhoto/$', 'getPhoto'),
 )
