@@ -49,7 +49,7 @@ def findPageList(request):
     response=urllib.request.urlopen(request)
     result=response.read()
 
-    return  render_mako_context(request, '/home_application/huntgence/index2.html',result)
+    return  result
 
 def findBaseInfoBySno(request):
     sno = request.GET.get('sno','SNO')
@@ -69,7 +69,7 @@ def findBaseInfoBySno(request):
     response=urllib.request.urlopen(request)
     result=response.read()
 
-    return  render_mako_context(request, '/home_application/huntgence/index2.html',result)
+    return  result
 
 def getPhoto(request):
     sno = request.GET.get('sno','SNO')
@@ -89,4 +89,4 @@ def getPhoto(request):
     response=urllib.request.urlopen(request)
     result=response.read()
 
-    return  render_mako_context(request, '/home_application/huntgence/index2.html',result)
+    return result
