@@ -32,8 +32,7 @@ def findPageList(request):
     limit= request.GET.get('limit')
     offset=request.GET.get('offset')
     queryParams=request.GET.get('queryParams')
-    params="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+queryParams
-    param="?order=asc&limit=10&offset=0&queryParams=FD01%23abcdefgfedcba%2CFD07%23%2525E5%25259C%2525A8%2525E6%2525A0%2525A1"
+    param="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+ urllib2.quote(queryParams)
     headers={
         #'Content-Type':'application/json',
         'Accept-Language':'zh-CN,zh;q=0.8',
