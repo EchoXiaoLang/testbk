@@ -512,7 +512,6 @@
                 "sno":sno
             },
             success : function(result) {
-                console.log("result----"+result);
                 if(result==null || result==""){
                     $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
                 }else{
@@ -520,7 +519,6 @@
                 }
             },
             error : function() {
-                console.log("result----");
                 $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
             }
         });
