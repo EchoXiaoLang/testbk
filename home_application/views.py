@@ -28,6 +28,7 @@ def  index(request):
   return  render_mako_context(request, '/home_application/huntgence/index2.html')
 
 def findPageList(request):
+
     limit= request.GET.get('limit')
     offset=request.GET.get('offset')
     order=request.GET.get('order')
@@ -48,7 +49,7 @@ def findPageList(request):
     response = urllib2.urlopen(request)
     result = response.read()
 
-    return  result
+    return  HttpResponse(result)
 
 def findBaseInfoBySno(request):
     sno=request.GET.get('sno')
@@ -68,7 +69,7 @@ def findBaseInfoBySno(request):
     response = urllib2.urlopen(request)
     result = response.read()
 
-    return  result
+    return  HttpResponse(result)
 
 def getPhoto(request):
     sno=request.GET.get('sno')
@@ -88,4 +89,4 @@ def getPhoto(request):
     response = urllib2.urlopen(request)
     result = response.read()
 
-    return result
+    return  HttpResponse(result)
