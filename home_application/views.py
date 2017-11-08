@@ -95,6 +95,6 @@ def getTest(request):
     limit= request.GET.get('limit')
     offset=request.GET.get('offset')
     queryParams=request.GET.get('queryParams')
-    params="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+queryParams
+    params="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+urllib2.unquote(queryParams).decode("utf-8")
 
     return  HttpResponse(params)
