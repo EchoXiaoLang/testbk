@@ -508,11 +508,9 @@
         $.ajax({
             url:  "getPhoto?sno="+sno,
             type: 'get',
-            dataType:'json',
             data: {
                 "sno":sno
             },
-          //  async : true,//同步
             success : function(result) {
                 console.log("result----"+result);
                 if(result==null || result==""){
