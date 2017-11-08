@@ -10,4 +10,5 @@ urlpatterns = patterns(
      (r'^findPageList/$', 'findPageList'),
     (r'^findBaseInfoBySno/$', 'findBaseInfoBySno'),
     (r'^getPhoto/$', 'getPhoto'),
+    (r'^getTest/$', 'getTest'),
 )

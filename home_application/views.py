@@ -89,3 +89,12 @@ def getPhoto(request):
     result = response.read()
 
     return  HttpResponse(result)
+
+def getTest(request):
+    order=request.GET.get('order')
+    limit= request.GET.get('limit')
+    offset=request.GET.get('offset')
+    queryParams=request.GET.get('queryParams')
+    params="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+queryParams
+
+    return  HttpResponse(params)
