@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/style.min.css">
     <link rel="stylesheet" href="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/bootstrap-table-master/dist/bootstrap-table.css">
     <link rel="stylesheet" href="${STATIC_URL}js/boostrap/boostrap-plugin/boostrap-admin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css">
-    <link rel="stylesheet" href="${STATIC_URL}js/boostrap//bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="${STATIC_URL}js/boostrap/css/font-awesome.min.css">
     <link rel="stylesheet"type="text/css" href="${STATIC_URL}css/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" type="text/css"href="${STATIC_URL}css/public.css" />
@@ -522,10 +521,9 @@
                 }
             },
             error : function() {
-                $("#photo").attr('src',base.basePath+"/images/datacenter/fastQuery/noperson.png");
+                $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
             }
         });
-        // $("#photo").attr('src',base.basePath+"/fastQuery/getPhoto?sno="+sno);
     }
 
 </script>
