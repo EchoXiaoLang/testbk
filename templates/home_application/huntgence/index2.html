@@ -506,8 +506,11 @@
     //添加人物图片显示
     function getPhoto(sno){
         $.ajax({
-            url:  "getPhoto?sno="+sno,
+            url:  "getPhoto",
             type: 'get',
+            data: {
+                "sno":sno
+            },
             success : function(result) {
                 console.log("result----"+result);
                 if(result==null || result==""){
