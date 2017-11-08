@@ -508,9 +508,6 @@
         $.ajax({
             url:  "getPhoto?sno="+sno,
             type: 'get',
-            data: {
-                "sno":sno
-            },
             success : function(result) {
                 console.log("result----"+result);
                 if(result==null || result==""){
