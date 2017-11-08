@@ -28,10 +28,9 @@ def  index(request):
   return  render_mako_context(request, '/home_application/huntgence/index2.html')
 
 def findPageList(request):
-
+    order=request.GET.get('order')
     limit= request.GET.get('limit')
     offset=request.GET.get('offset')
-    order=request.GET.get('order')
     queryParams=request.GET.get('queryParams')
     param="?order="+order+"&sort="+limit+"&limit="+offset+"&offset="+order+"&queryParams="+queryParams
     headers={
@@ -43,7 +42,6 @@ def findPageList(request):
    # 请求地址
     url="http://edw.tongji.edu.cn:5678/datacenter/fastQuery/findPageList"
     url=url+param
-    print url
 
     request = urllib2.Request(url, headers=headers)
     response = urllib2.urlopen(request)
