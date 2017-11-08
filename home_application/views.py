@@ -32,7 +32,7 @@ def findPageList(request):
     limit= request.GET.get('limit')
     offset=request.GET.get('offset')
     queryParams=request.GET.get('queryParams')
-    param="?order="+order+"&sort="+limit+"&limit="+offset+"&offset="+order+"&queryParams="+queryParams
+    param="?order="+order+"&limit="+limit+"&offset="+offset+"&queryParams="+queryParams
     headers={
         #'Content-Type':'application/json',
         'Accept-Language':'zh-CN,zh;q=0.8',
