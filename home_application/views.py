@@ -2,7 +2,7 @@
 
 from common.mymako import render_mako_context
 from   django.http import HttpResponse
-import urllib
+import urllib2
 def home(request):
     """
     首页
@@ -28,10 +28,10 @@ def  index(request):
   return  render_mako_context(request, '/home_application/huntgence/index2.html')
 
 def findPageList(request):
-    limit=request.GET['limit']
-    offset=request.GET['offset']
-    order=request.GET['order']
-    queryParams=request.GET['queryParams']
+    limit= request.GET.get('limit')
+    offset=request.GET.get('offset')
+    order=request.GET.get('order')
+    queryParams=request.GET.get('queryParams')
     param="?order="+order+"&sort="+limit+"&limit="+offset+"&offset="+order+"&queryParams="+queryParams
     headers={
         #'Content-Type':'application/json',
@@ -44,14 +44,14 @@ def findPageList(request):
     url=url+param
     print url
 
-    request=urllib.request.Request(url,headers=headers)
-    response=urllib.request.urlopen(request)
-    result=response.read()
+    request = urllib2.Request(url, headers=headers)
+    response = urllib2.urlopen(request)
+    result = response.read()
 
     return  result
 
 def findBaseInfoBySno(request):
-    sno=request.GET['sno']
+    sno=request.GET.get('sno')
     param="?sno="+sno
     headers={
         #'Content-Type':'application/json',
@@ -64,14 +64,14 @@ def findBaseInfoBySno(request):
     url=url+param
     print url
 
-    request=urllib.request.Request(url,headers=headers)
-    response=urllib.request.urlopen(request)
-    result=response.read()
+    request = urllib2.Request(url, headers=headers)
+    response = urllib2.urlopen(request)
+    result = response.read()
 
     return  result
 
 def getPhoto(request):
-    sno=request.GET['sno']
+    sno=request.GET.get('sno')
     param="?sno="+sno
     headers={
         #'Content-Type':'application/json',
@@ -84,8 +84,8 @@ def getPhoto(request):
     url=url+param
     print url
 
-    request=urllib.request.Request(url,headers=headers)
-    response=urllib.request.urlopen(request)
-    result=response.read()
+    request = urllib2.Request(url, headers=headers)
+    response = urllib2.urlopen(request)
+    result = response.read()
 
     return result
