@@ -34,7 +34,7 @@
                 <div class="choose  btn-group  " style="margin-top: 1.5%;">
                     <button type="button" class="btn btn_where">手机号</button>
                     <button type="button" class="btn btn_where">身份证号</button>
-                    <button type="button" class="btn btn_where">一卡通号</button>
+                    <button type="button" class="btn btn_where">邮箱</button>
                     <button type="button" class="btn btn_where">车牌号</button>
                 </div>
                 <div class="search fl"
@@ -99,7 +99,7 @@
                                 </li>
                                 <li class="clear">
                                     <sapn class="fl">一卡通号：</sapn>
-                                    <span class="fl" id="oneCardId"></span>
+                                    <span class="fl" id="mail"></span>
                                 </li>
                                 <li class="clear">
                                     <sapn class="fl">车牌号：</sapn>
@@ -204,8 +204,8 @@
         searchField="FD02";
     }else if(sInput=="车牌号"){
         searchField="FD06";
-    }else if(sInput=="一卡通号"){
-        searchField="FD05";
+    }else if(sInput=="邮箱"){
+        searchField="FD19";
     }else if(sInput=="手机号"){
         searchField="FD03";
     }else{
@@ -265,8 +265,8 @@
                 $("#searchInput").attr("placeholder","请输入姓名");
             }else if(txt=="车牌号"){
                 $("#searchInput").attr("placeholder","输入车牌号");
-            }else if(txt=="一卡通号"){
-                $("#searchInput").attr("placeholder","请输入一卡通号");
+            }else if(txt=="邮箱"){
+                $("#searchInput").attr("placeholder","请输入邮箱");
             }else if(txt=="手机号"){
                 $("#searchInput").attr("placeholder","请输入手机号");tabTitle=["手机号"];
             }else{
@@ -289,8 +289,8 @@
             searchField="FD02";
         }else if(sInput=="车牌号"){
             searchField="FD06";
-        }else if(sInput=="一卡通号"){
-            searchField="FD05";
+        }else if(sInput=="邮箱："){
+            searchField="FD19";
         }else if(sInput=="学工号/姓名"){
             if(!isNaN($("#searchInput").val())){
                 //学工号
@@ -392,7 +392,7 @@
                     $("#idCard").text(rows[0].FD04);
                     $("#mobilePhone").text(rows[0].FD03);
                     $("#carId").text(rows[0].FD06);
-                    $("#oneCardId").text(rows[0].FD05);
+                    $("#mail").text(rows[0].FD19);
                     $("#departureTime").text(rows[0].FD14);
                     $("#deptName").text(rows[0].FD10);
                     $("#specialty").text(rows[0].FD15);
@@ -460,7 +460,7 @@
                     $("#idCard").text(dataList[0].FD04);
                     $("#mobilePhone").text(dataList[0].FD03);
                     $("#carId").text(dataList[0].FD06);
-                    $("#oneCardId").text(dataList[0].FD05);
+                    $("#mail").text(dataList[0].FD19);
                     $("#departureTime").text(dataList[0].FD14);
                     $("#deptName").text(dataList[0].FD10);
                     $("#specialty").text(dataList[0].FD15);
@@ -486,7 +486,7 @@
         $("#idCard").text("");
         $("#mobilePhone").text("");
         $("#carId").text("");
-        $("#oneCardId").text("");
+        $("#mail").text("");
         $("#departureTime").text("");
         $("#deptName").text("");
         $("#specialty").text("");
