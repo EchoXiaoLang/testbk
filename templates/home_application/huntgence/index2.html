@@ -512,7 +512,7 @@
             data: {
                 "sno":sno
             },
-            async : true,//同步
+          //  async : true,//同步
             success : function(result) {
                 console.log("result----"+result);
                 if(result==null || result==""){
@@ -522,6 +522,7 @@
                 }
             },
             error : function() {
+                console.log("result----");
                 $("#photo").attr('src',"${STATIC_URL}img/noperson.png");
             }
         });
